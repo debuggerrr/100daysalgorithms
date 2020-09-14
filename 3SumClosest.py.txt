@@ -1,0 +1,32 @@
+Link to the problem:
+https://leetcode.com/problems/3sum-closest/
+
+class Solution:
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+        nums.sort()
+        result={}
+        
+        for i in range(len(nums)):
+            j=i+1
+            k=len(nums)-1
+            while j<k:
+                s=nums[i]+nums[j]+nums[k]
+                print(s)
+                if s==target:
+                    return s
+                    break
+                else:
+                    result[s]=abs(target-s)
+                    if s>target:
+                        k-=1
+                    else:
+                        j+=1
+                    
+        return min(result,key=result.get)
+
+
+'''
+Here the main purpose is to use two pointers algorithm. Out of two pointers one would be at the start and the last pointer would be at the end. At each step we will calculate the inital sum and compare it with the target. If it matches then just return the current sum or else calculate the absolute value, do checks, increment or decrement pointers in order to get close to the target and at the end of the for loop we find the minimum value from the result we get. 
+
+'''
+        

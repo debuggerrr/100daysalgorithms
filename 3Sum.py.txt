@@ -1,0 +1,28 @@
+https://leetcode.com/problems/3sum/
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        nums.sort()
+        if len(nums) < 3:
+            return res
+
+        for i in range(len(nums) - 2):
+            if i > 0 and nums[i] == nums[i-1]: continue
+            l, r = i + 1, len(nums) - 1
+            while l < r :
+                s = nums[i] + nums[l] + nums[r]
+                if s == 0:
+                    res.append([nums[i] ,nums[l] ,nums[r]])
+                    l += 1; r -= 1
+                    while l < r and nums[l] == nums[l - 1]: l += 1
+                    while l < r and nums[r] == nums[r + 1]: r -= 1
+                elif s < 0 :
+                    l += 1
+                else:
+                    r -= 1
+        return res      
+'''
+Here we have to initialise two variables l and r which left and right pointers. We will check whether it meets the target. If yes, we ll increment / decrement two pointers as shown. If not, then we check whether the sum is negative then we will increment the left pointer just to increase the value and if the sum is greater than 0 then we will try to decrement the larger value since we have sorted the list. Also there is a check where we are checking whether numbers at two positons are repeated or not. If yes then we will just keep on sliding the index till we get a different value.
+'''
+            
