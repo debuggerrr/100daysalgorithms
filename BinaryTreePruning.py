@@ -1,3 +1,6 @@
+Problem Statement link:
+    https://leetcode.com/problems/binary-tree-pruning/
+        
 class Solution:
     def pruneTree(self, n):
         if n:
