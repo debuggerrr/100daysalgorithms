@@ -1,0 +1,17 @@
+
+def findMostOccurencesGreaterThanHalfOfTheList(list):
+    d = {}
+    for i in list:
+        if i in d.keys():
+            counter = d[i] + 1  # Getting the last stored value for a specific key and adding 1 to it...
+            d[i] = counter  # Setting the new value for that specific key...
+        else:
+            counter = 1
+            d[i] = counter  # This means that the element is occuring for the first time...
+    print(d)
+    for key, values in d.items():
+        if values > (len(list) / 2):
+            return key
+    return -1
+
+print(findMostOccurencesGreaterThanHalfOfTheList(list))
