@@ -21,3 +21,5 @@ wordDict = ["leet", "code"]
         return False # Or else return False
 
     return dfs(0)
+
+  https://leetcode.com/problems/word-break/discuss/2365252/python-top-down-dp/1522139
